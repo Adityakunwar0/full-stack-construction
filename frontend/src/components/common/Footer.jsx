@@ -71,7 +71,6 @@ export const Footer = () => {
           </div>
           <hr />
           <p className="text-center pt-2">
-            {" "}
             Copyright @2026 UrbanEdge Constructions. All Right Reserved.
           </p>
         </div>

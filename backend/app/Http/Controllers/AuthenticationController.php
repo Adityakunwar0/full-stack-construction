@@ -10,7 +10,7 @@ use App\Models\User;
 class AuthenticationController extends Controller
 {
     public function authenticate(Request $request){
-        try {
+        
             $validator = Validator::make($request->all(),[
                 'email' => 'required|email',
                 'password' => 'required',
@@ -42,15 +42,6 @@ class AuthenticationController extends Controller
                     'message' => 'Either email/password is incorrect.'
                 ]);
             }
-
-        } catch (\Exception $e) {
-            return response()->json([
-                'status' => false,
-                'error' => $e->getMessage(),     // ← REAL error message
-                'line' => $e->getLine(),          // ← which line
-                'file' => $e->getFile(),          // ← which file
-            ], 500);
-        }
     }
 
     public function logout(){

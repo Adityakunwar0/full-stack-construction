@@ -17,7 +17,7 @@ const Contact = () => {
 
   
    const onSubmit = async (data) => {
-  try {
+  
     const res = await fetch(apiurl + "contact-now", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -32,10 +32,10 @@ const Contact = () => {
     } else {
       toast.error(result.message || "Something went wrong.");
     }
-  } catch (error) {
+  
     toast.error("Network error. Please try again.");
     console.error(error);
-  }
+  
   };
 
   return (

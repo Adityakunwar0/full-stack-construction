@@ -31,20 +31,14 @@ class ContactController extends Controller
         'message' => $request->message,
     ];
 
-    try {
+    
         Mail::to('admin@example.com')->send(new ContactEmail($mailData));
         return response()->json([
             'status'  => true,
             'message' => 'Thanks For Contacting us.'
         ]);
-    } catch (\Exception $e) {
-        \Log::error('Mail error: ' . $e->getMessage());
-        return response()->json([
-            'status'  => false,
-            'message' => 'Could not send message. Please try again later.'
-        ], 500);
     }
-}
+
     
 
 }

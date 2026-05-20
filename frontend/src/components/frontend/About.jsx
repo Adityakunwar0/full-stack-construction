@@ -2,11 +2,10 @@ import React from "react";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
 import { default as AboutNew } from "../common/About";
-import MemberImg2 from "../../assets/images/team2.jpg";
-import MemberImg3 from "../../assets/images/team3.jpg";
 import Hero from "../common/Hero";
 import ShowTestimonial from "../common/ShowTestimonial";
 import Team from "../common/Team";
+
 const About = () => {
   return (
     <>

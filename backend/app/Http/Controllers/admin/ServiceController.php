@@ -43,7 +43,7 @@ class ServiceController extends Controller
         $validator = Validator::make($request->all(),[
             'title' => 'required',
             //|unique:services,slug -> it is for unique slug but i only want to update the image so that reason i am not using unique
-            'slug' => 'required'
+            'slug' => 'required|unique:services,slug'
         ]);
 
         if($validator->fails()){

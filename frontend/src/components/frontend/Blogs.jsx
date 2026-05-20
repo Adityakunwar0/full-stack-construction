@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
 import Hero from "../common/Hero";
-import BlogImg from "../../assets/images/construction121.jpg";
-import BlogImg2 from "../../assets/images/engineer.jpg";
-import BlogImg3 from "../../assets/images/engineer2.jpg";
 import { apiurl, fileUrl } from "../common/Http";
 import { Link } from "react-router-dom";
 

@@ -36,7 +36,6 @@ const Home = () => {
                 </p>
                 <div className="mt-4">
                   <Link to="/contact" className="btn btn-primary large">
-                    {" "}
                     Contact Now
                   </Link>
                   <Link to="/projects" className="btn btn-secondary large ms-2">

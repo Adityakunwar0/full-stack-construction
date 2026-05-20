@@ -4,7 +4,6 @@ import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import AvatarImg from "../../assets/images/author-2.jpg";
 
 const ShowTestimonial = () => {
   const [testimonials, setTestimonials] = useState([]);

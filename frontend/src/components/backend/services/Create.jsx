@@ -14,6 +14,7 @@ const Create = ({ placeholder }) => {
   const [isDisable, setIsDisable] = useState(false);
   const [imageId, setImageId] = useState(null);
 
+  // it will return the config object for the JoditEditor component and it will be memoized so that it will not be recreated on every render
   const config = useMemo(
     () => ({
       readonly: false, // all options from https://xdsoft.net/jodit/docs/,
@@ -32,7 +33,7 @@ const Create = ({ placeholder }) => {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    const newData = { ...data, content: content, imageId: imageId };
+    const newData = { ...data, "content": content, "imageId": imageId };
     const res = await fetch(apiurl + "services", {
       method: "POST",
       headers: {
@@ -58,7 +59,7 @@ const Create = ({ placeholder }) => {
     formData.append("image", file);
     setIsDisable(true);
 
-    const res = await fetch(apiurl + "temp-images", {
+    const res = await fetch(apiurl + 'temp-images', {
       method: "POST",
       headers: {
         Accept: "application/json",

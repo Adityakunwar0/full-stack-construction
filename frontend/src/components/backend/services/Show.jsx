@@ -46,6 +46,7 @@ const Show = () => {
 
     //setServices(result.data)
   };
+  // it will run when the component is mounted and it will fetch the services from the backend and set the services state
   useEffect(() => {
     fetchServices();
   }, []);
@@ -97,7 +98,6 @@ const Show = () => {
                                   {service.status == 1 ? "Active" : "Block"}
                                 </td>
                                 <td>
-                                  <div className="d-flex flex-column flex-md-row gap-2"></div>
                                   <div className="d-flex flex-column flex-md-row gap-2">
                                     <Link
                                       to={`/admin/services/edit/${service.id}`}

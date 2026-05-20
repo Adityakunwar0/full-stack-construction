@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-import BlogImg from "../../assets/images/construction121.jpg";
-import BlogImg2 from "../../assets/images/engineer.jpg";
-import BlogImg3 from "../../assets/images/engineer2.jpg";
 import { apiurl, fileUrl } from "./Http";
 import { Link } from "react-router-dom";
 

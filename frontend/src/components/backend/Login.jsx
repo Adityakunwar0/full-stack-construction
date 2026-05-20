@@ -7,18 +7,22 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./context/Auth";
 
 const Login = () => {
+  // Get login function from auth context
   const { login } = useContext(AuthContext);
 
   const navigate = useNavigate();
+  
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+
+  // Interact with backend API to authenticate user
   const onSubmit = async (data) => {
-    try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/authenticate`, {
+    
+      const res = await fetch("http://localhost:8000/api/authenticate", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -36,6 +40,7 @@ const Login = () => {
       if (result.status == false) {
         toast.error(result.message);
       } else {
+        // save user info in local storage and update auth context
         const userInfo = {
           id: result.id,
           token: result.token,
@@ -44,9 +49,7 @@ const Login = () => {
         login(userInfo);
         navigate("/admin/dashboard");
       }
-    } catch (err) {
-      toast.error("Unable to connect to server.");
-    }
+    
   };
 
   return (
