@@ -79,27 +79,40 @@ const Edit = ({ placeholder }) => {
   const handleFile = async (e) => {
     const formData = new FormData();
     const file = e.target.files[0];
+
+    if (!file) return;
+
     formData.append("image", file);
     setIsDisable(true);
 
-    const res = await fetch(apiurl + "temp-images", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${token()}`,
-      },
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((result) => {
+    try {
+        const res = await fetch(apiurl + "temp-images", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                Authorization: `Bearer ${token()}`,
+            },
+            body: formData,
+        });
+
+        const result = await res.json();
         setIsDisable(false);
-        if (result.status == false) {
-          toast.error(result.errors.image[0]);
+
+        console.log("Upload result:", result); // ✅ check this in browser console
+
+        if (result.status === false) {
+            toast.error(result.errors?.image?.[0] || result.message || "Image upload failed");
         } else {
-          setImageId(result.data.id);
+            setImageId(result.data.id);
+            toast.success("Image uploaded successfully");
         }
-      });
-  };
+
+    } catch (err) {
+        setIsDisable(false);
+        console.error("Upload error:", err);
+        toast.error("Network error, image upload failed");
+    }
+};
 
   return (
     <>

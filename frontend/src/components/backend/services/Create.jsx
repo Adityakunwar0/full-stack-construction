@@ -56,27 +56,33 @@ const Create = ({ placeholder }) => {
   const handleFile = async (e) => {
     const formData = new FormData();
     const file = e.target.files[0];
+
+    if (!file) return;
+
     formData.append("image", file);
     setIsDisable(true);
 
+    // ✅ Removed mixed await + .then() — use only await
     const res = await fetch(apiurl + 'temp-images', {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${token()}`,
-      },
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        setIsDisable(false);
-        if (result.status == false) {
-          toast.error(result.errors.image[0]);
-        } else {
-          setImageId(result.data.id);
-        }
-      });
-  };
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token()}`,
+        },
+        body: formData,
+    });
+
+    const result = await res.json();
+    setIsDisable(false);
+
+    if (result.status === false) {
+        toast.error(result.errors?.image?.[0] || "Image upload failed");
+    } else {
+        setImageId(result.data.id); // ✅ now this will actually set the id
+        toast.success("Image uploaded successfully");
+    }
+};
+
 
   return (
     <>
@@ -157,7 +163,7 @@ const Create = ({ placeholder }) => {
                         config={config}
                         tabIndex={1} // tabIndex of textarea
                         onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                        onChange={(newContent) => {}}
+                        onChange={(newContent) => { }}
                       />
                     </div>
                     <div className="mb-3">

@@ -27,7 +27,7 @@ class TempImageController extends Controller
 
     $image = $request->image;
     $ext = $image->getClientOriginalExtension();
-        $imageName = strtotime('now').'.'.$ext;
+        $imageName = strtotime('now').'.'.$ext; 
 
         //save data in temp image table
         $model = new TempImage();
