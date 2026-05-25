@@ -90,9 +90,8 @@ const Home = () => {
                     <h3>Superior Craftmanship</h3>
                   </div>
                   <p>
-                    Superior craftsmanship is built through skill, dedication,
-                    and attention to every detail, ensuring excellence in every
-                    project.
+                    Superior craftsmanship is built through skill, dedication, and attention to every detail, 
+                    ensuring excellence, and outstanding quality in every project.
                   </p>
                 </div>
               </div>
