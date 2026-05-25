@@ -1,5 +1,5 @@
-export const apiurl = 'http://localhost:8000/api/';
-export const fileUrl = 'http://localhost:8000/';
+export const apiurl = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/';
+export const fileUrl = import.meta.env.VITE_FILE_URL || 'http://localhost:8000/';
 
 export const token = () => {
   const userInfo = localStorage.getItem("userInfo");
