@@ -161,7 +161,7 @@ class ServiceController extends Controller
         $service->save();
 
         // Save temp Image here
-        // Save temp Image here
+        
         if ($request->imageId > 0){
             $oldImage = $service->image;
             $tempImage = TempImage::find($request->imageId);
