@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./context/Auth";
+import { apiurl } from "../common/Http";
 
 const Login = () => {
   // Get login function from auth context
@@ -22,7 +23,7 @@ const Login = () => {
   // Interact with backend API to authenticate user
   const onSubmit = async (data) => {
     
-      const res = await fetch("http://localhost:8000/api/authenticate", {
+      const res = await fetch(apiurl + "articles", {
         method: "POST",
         headers: {
           "content-type": "application/json",
