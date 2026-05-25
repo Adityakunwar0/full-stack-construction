@@ -30,10 +30,13 @@ import { default as EditMembers } from "./components/backend/members/Edit";
 import ServiceDetail from "./components/frontend/ServiceDetail";
 import ProjectDetail from "./components/frontend/ProjectDetail";
 import BlogDetail from "./components/frontend/BlogDetail";
+import ScrollToTop from "./components/common/ScrollToTop";
+
 function App() {
   return (
     <>
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

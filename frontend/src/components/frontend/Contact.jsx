@@ -63,27 +63,27 @@ const Contact = () => {
                   <div className="card-body p-4">
                     <h3>Call Us</h3>
                     <div>
-                      {" "}
-                      <a href=""> (888-000-0000) </a>{" "}
+                      
+                      <a href=""> (+977-9842406210) </a>
                     </div>
                     <div>
-                      {" "}
-                      <a href=""> (222-123-12345)</a>{" "}
+                      
+                      <a href=""> (+977-9746685440)</a>
                     </div>
 
                     <h3 className="mt-4">You can write us</h3>
                     <div>
-                      <a href=""> example@example.com </a>
+                      <a href=""> adityakunwar62@gmail.com </a>
                     </div>
                     <div>
-                      <a href=""> info@example.com</a>
+                      <a href=""> urbanedgecons@gmail.com</a>
                     </div>
 
                     <h3 className="mt-4">Address</h3>
                     <div>
-                      {" "}
-                      B-18X, Rajaji Puram <br />
-                      Lucknow, Uttar Pradesh, 226017 <br /> 0522400XXXX
+                      
+                      AlokNagar-31 <br />
+                     Kathmandu, Nepal <br /> 44600
                     </div>
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -18,22 +19,22 @@ export const Footer = () => {
             <h3 className="mb-3">Our Services</h3>
             <ul>
               <li>
-                <a href="">Speciality Construction</a>
+                <Link to="/service/7">Speciality Construction</Link>
               </li>
               <li>
-                <a href="">Civil Construction</a>
+                <Link to="/service/6">Civil Construction</Link>
               </li>
               <li>
-                <a href="">Residential Construction</a>
+                <Link to="/service/4">Residential Construction</Link>
               </li>
               <li>
-                <a href="">Corporate Construction</a>
+                <Link to="/service/5">Corporate Construction</Link>
               </li>
               <li>
-                <a href="">Building Construction</a>
+                <Link to="/service/8">Commercial Construction</Link>
               </li>
               <li>
-                <a href="">Industrial Construction</a>
+                <Link to="/service/3">Industrial Construction</Link>
               </li>
             </ul>
           </div>
@@ -41,19 +42,19 @@ export const Footer = () => {
             <h3 className="mb-3">Quick Links</h3>
             <ul>
               <li>
-                <a href="">About Us</a>
+                <Link to="/about">About Us</Link>
               </li>
               <li>
-                <a href="">Services</a>
+                <Link to="/services">Services</Link>
               </li>
               <li>
-                <a href="">Projects</a>
+                <Link to="/projects">Projects</Link>
               </li>
               <li>
-                <a href="">Blog</a>
+                <Link to="/blogs">Blog</Link>
               </li>
               <li>
-                <a href="">Contact Us</a>
+                <Link to="/contact">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -61,12 +62,12 @@ export const Footer = () => {
             <h3 className="mb-3">Contact Us</h3>
             <ul>
               <li>
-                <a href="">(888-000-0000)</a>
+                <a href="">(+977-9842406210 )</a>
               </li>
               <li>
-                <a href="">info@example.com</a>
+                <a href="">adityakunwar6210@gmail.com</a>
               </li>
-              <p>Tikathali, Kathmandu, Nepal</p>
+              <p>AlokNagar-31, Kathmandu 44600, Nepal</p>
             </ul>
           </div>
           <hr />
