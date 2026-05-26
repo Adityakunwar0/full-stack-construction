@@ -84,3 +84,23 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('temp-images', [TempImageController::class,'store']); 
 
 });
+
+Route::get('/debug', function () {
+    try {
+        // Test DB connection
+        $articles = App\Models\Article::all();
+        return response()->json([
+            'status'   => true,
+            'count'    => $articles->count(),
+            'articles' => $articles,
+            'columns'  => Schema::getColumnListing('articles'), // shows all columns
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'status'  => false,
+            'error'   => $e->getMessage(),   // ← real error here
+            'line'    => $e->getLine(),
+            'file'    => $e->getFile(),
+        ]);
+    }
+});
