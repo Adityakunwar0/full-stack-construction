@@ -93,7 +93,7 @@ const Edit = ({ placeholder }) => {
       .then((result) => {
         setIsDisable(false);
         if (result.status == false) {
-          toast.error(result.errors.iamge[0]);
+          toast.error(result.errors.image[0]);
         } else {
           setImageId(result.data.id);
         }
@@ -202,10 +202,10 @@ const Edit = ({ placeholder }) => {
                       <input onChange={handleFile} type="file" />
                     </div>
                     <div className="pb-3">
-                      {article.iamge && (
+                      {article.image && (
                         <img
                           src={
-                            fileUrl + "uploads/articles/small/" + article.iamge
+                            fileUrl + "uploads/articles/small/" + article.image
                           }
                           alt=""
                         />

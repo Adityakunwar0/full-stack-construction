@@ -45,7 +45,7 @@ const Blogs = () => {
                     <div className="card shadow border-0">
                       <div className="card-img-top">
                         <img
-                          src={`${fileUrl}uploads/articles/small/${article.iamge}`}
+                          src={`${fileUrl}uploads/articles/small/${article.image}`}
                           alt=""
                           className="w-100"
                         />

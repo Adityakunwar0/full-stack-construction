@@ -71,7 +71,7 @@ const Create = ({ placeholder }) => {
       .then((result) => {
         setIsDisable(false);
         if (result.status == false) {
-          toast.error(result.errors.iamge[0]);
+          toast.error(result.errors.image[0]);
         } else {
           setImageId(result.data.id);
         }

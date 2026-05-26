@@ -54,7 +54,7 @@ const BlogDetail = () => {
               <div className="pe-md-5 pb-3">
                 <img
                   className="w-100"
-                  src={`${fileUrl}uploads/articles/large/${article.iamge}`}
+                  src={`${fileUrl}uploads/articles/large/${article.image}`}
                   alt=""
                 />
               </div>
@@ -75,7 +75,7 @@ const BlogDetail = () => {
                             <Link to={`/blog/${article.id}`}>
                               <img
                                 width={100}
-                                src={`${fileUrl}uploads/articles/small/${article.iamge}`}
+                                src={`${fileUrl}uploads/articles/small/${article.image}`}
                                 alt=""
                               />
                             </Link>
