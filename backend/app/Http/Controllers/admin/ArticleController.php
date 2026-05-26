@@ -61,7 +61,7 @@ class ArticleController extends Controller
         $article->save();
 
          if ($request->imageId > 0){
-            $oldImage = $article->iamge;
+            $oldImage = $article->image;
             $tempImage = TempImage::find($request->imageId);
             if($tempImage != null){
                 $extArray = explode('.',$tempImage->name);
@@ -73,18 +73,18 @@ class ArticleController extends Controller
                 $sourcePath = public_path('uploads/temp/'.$tempImage->name);
                 $destPath = public_path('uploads/articles/small/'.$fileName);
                 $manager = new ImageManager(new Driver());
-                $iamge = $manager->read($sourcePath);
-                $iamge ->coverDown(450, 300);
-                $iamge ->save($destPath);
+                $image = $manager->read($sourcePath);
+                $image ->coverDown(450, 300);
+                $image ->save($destPath);
 
                 //create large thumbnail here 
                 $destPath = public_path('uploads/articles/large/'.$fileName);
                 $manager = new ImageManager(new Driver());
-                $iamge = $manager->read($sourcePath);
-                $iamge ->scaleDown(1200);
-                $iamge ->save($destPath);
+                $image = $manager->read($sourcePath);
+                $image ->scaleDown(1200);
+                $image ->save($destPath);
 
-                $article->iamge = $fileName;
+                $article->image = $fileName;
                 $article->save();
 
             }
@@ -159,18 +159,18 @@ class ArticleController extends Controller
                 $sourcePath = public_path('uploads/temp/'.$tempImage->name);
                 $destPath = public_path('uploads/articles/small/'.$fileName);
                 $manager = new ImageManager(new Driver());
-                $iamge = $manager->read($sourcePath);
-                $iamge ->coverDown(450, 300);
-                $iamge ->save($destPath);
+                $image = $manager->read($sourcePath);
+                $image ->coverDown(450, 300);
+                $image ->save($destPath);
 
                 //create large thumbnail here 
                 $destPath = public_path('uploads/articles/large/'.$fileName);
                 $manager = new ImageManager(new Driver());
-                $iamge = $manager->read($sourcePath);
-                $iamge ->scaleDown(1200);
-                $iamge ->save($destPath);
+                $image = $manager->read($sourcePath);
+                $image ->scaleDown(1200);
+                $image ->save($destPath);
 
-                $article->iamge = $fileName;
+                $article->image = $fileName;
                 $article->save();
 
             }
@@ -192,8 +192,8 @@ class ArticleController extends Controller
             ]);
 
         }
-        File::delete(public_path('uploads/articles/large/'.$article->iamge));
-        File::delete(public_path('uploads/articles/small/'.$article->iamge));
+        File::delete(public_path('uploads/articles/large/'.$article->image));
+        File::delete(public_path('uploads/articles/small/'.$article->image));
         
         $article->delete();
         
