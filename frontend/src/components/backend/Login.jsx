@@ -76,7 +76,7 @@ const Login = () => {
                         },
                       })}
                       id= "email"
-                      type="text"
+                      type="email"
                       placeholder="Email"
                       className={`form-control ${errors.email && "is-invalid"}`}
                     />
