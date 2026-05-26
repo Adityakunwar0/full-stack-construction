@@ -73,18 +73,18 @@ class ArticleController extends Controller
                 $sourcePath = public_path('uploads/temp/'.$tempImage->name);
                 $destPath = public_path('uploads/articles/small/'.$fileName);
                 $manager = new ImageManager(new Driver());
-                $iamge = $manager->read($sourcePath);
-                $iamge ->coverDown(450, 300);
-                $iamge ->save($destPath);
+                $image = $manager->read($sourcePath);
+                $image ->coverDown(450, 300);
+                $image ->save($destPath);
 
                 //create large thumbnail here 
                 $destPath = public_path('uploads/articles/large/'.$fileName);
                 $manager = new ImageManager(new Driver());
-                $iamge = $manager->read($sourcePath);
-                $iamge ->scaleDown(1200);
-                $iamge ->save($destPath);
+                $image = $manager->read($sourcePath);
+                $image ->scaleDown(1200);
+                $image ->save($destPath);
 
-                $article->iamge = $fileName;
+                $article->image = $fileName;
                 $article->save();
 
             }
@@ -159,18 +159,18 @@ class ArticleController extends Controller
                 $sourcePath = public_path('uploads/temp/'.$tempImage->name);
                 $destPath = public_path('uploads/articles/small/'.$fileName);
                 $manager = new ImageManager(new Driver());
-                $iamge = $manager->read($sourcePath);
-                $iamge ->coverDown(450, 300);
-                $iamge ->save($destPath);
+                $image = $manager->read($sourcePath);
+                $image ->coverDown(450, 300);
+                $image ->save($destPath);
 
                 //create large thumbnail here 
                 $destPath = public_path('uploads/articles/large/'.$fileName);
                 $manager = new ImageManager(new Driver());
                 $image = $manager->read($sourcePath);
-                $iamge ->scaleDown(1200);
-                $iamge ->save($destPath);
+                $image ->scaleDown(1200);
+                $image ->save($destPath);
 
-                $article->iamge = $fileName;
+                $article->image = $fileName;
                 $article->save();
 
             }
