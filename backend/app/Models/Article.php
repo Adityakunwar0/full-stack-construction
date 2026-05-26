@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Article extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'author',
+        'content',
+        'status',
+        'image',
+    ];
     
 
     protected function casts(): array{
