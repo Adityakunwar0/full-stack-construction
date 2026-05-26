@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\str;
+use Illuminate\Support\Str;
 use App\Models\TempImage;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -90,7 +90,7 @@ class ArticleController extends Controller
             }
             if($oldImage != ''){
                     File::delete(public_path('uploads/articles/large/'.$oldImage));
-                    File::delete(public_path('uploads/aticles/small/'.$oldImage));
+                    File::delete(public_path('uploads/articles/small/'.$oldImage));
                 }
         }
 
