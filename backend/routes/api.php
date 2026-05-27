@@ -100,3 +100,9 @@ Route::get('/create-admin', function () {
         'prefix' => substr(\App\Models\User::find($user->id)->getAttributes()['password'], 0, 10)
     ]);
 });
+
+Route::get('/imagick-check', function () {
+    return extension_loaded('imagick')
+        ? 'Imagick Installed'
+        : 'Imagick Missing';
+});
