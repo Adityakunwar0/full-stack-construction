@@ -23,7 +23,7 @@ const Login = () => {
   // Interact with backend API to authenticate user
   const onSubmit = async (data) => {
     
-      const res = await fetch(apiurl + "articles", {
+      const res = await fetch(apiurl + "authenticate", {
         method: "POST",
         headers: {
           "content-type": "application/json",
