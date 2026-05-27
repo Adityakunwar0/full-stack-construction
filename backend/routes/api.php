@@ -85,22 +85,26 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 
 });
 
-Route::get('/debug', function () {
+Route::post('/test-auth', function (\Illuminate\Http\Request $request) {
     try {
-        // Test DB connection
-        $articles = App\Models\Article::all();
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        
+        $attempt = \Illuminate\Support\Facades\Auth::attempt($credentials);
+        
         return response()->json([
-            'status'   => true,
-            'count'    => $articles->count(),
-            'articles' => $articles,
-            'columns'  => Schema::getColumnListing('articles'), // shows all columns
+            'attempt' => $attempt,
+            'input' => $request->all(),
+            'user_exists' => \App\Models\User::where('email', $request->email)->exists(),
+            'user' => \App\Models\User::where('email', $request->email)->first(['id','email','password']),
         ]);
     } catch (\Exception $e) {
         return response()->json([
-            'status'  => false,
-            'error'   => $e->getMessage(),   // ← real error here
-            'line'    => $e->getLine(),
-            'file'    => $e->getFile(),
+            'error' => $e->getMessage(),
+            'line' => $e->getLine(),
+            'file' => $e->getFile(),
         ]);
     }
 });
