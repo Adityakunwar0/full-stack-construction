@@ -62,7 +62,6 @@ const Create = ({ placeholder }) => {
     formData.append("image", file);
     setIsDisable(true);
 
-    // ✅ Removed mixed await + .then() — use only await
     const res = await fetch(apiurl + 'temp-images', {
         method: "POST",
         headers: {
@@ -78,7 +77,7 @@ const Create = ({ placeholder }) => {
     if (result.status === false) {
         toast.error(result.errors?.image?.[0] || "Image upload failed");
     } else {
-        setImageId(result.data.id); // ✅ now this will actually set the id
+        setImageId(result.data.id); 
         toast.success("Image uploaded successfully");
     }
 };
