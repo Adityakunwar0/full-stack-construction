@@ -18,10 +18,12 @@ return Application::configure(basePath: dirname(__DIR__))
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
         ]);
 
-        // ✅ Add this - prevents redirect to route('login') for API routes
-        $middleware->redirectGuestsTo(function (Request $request) {
-            return $request->expectsJson() ? null : route('login');
-        });
+        // // ✅ Add this - prevents redirect to route('login') for API routes
+        // $middleware->redirectGuestsTo(function (Request $request) {
+        //     return $request->expectsJson() ? null : route('login');
+        // });
+        
+        $middleware->redirectGuestsTo(fn() => null);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         // ✅ Add this - catches AuthenticationException and returns JSON 401
