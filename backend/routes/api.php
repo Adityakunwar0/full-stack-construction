@@ -85,26 +85,18 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 
 });
 
-Route::post('/test-auth', function (\Illuminate\Http\Request $request) {
-    try {
-        $credentials = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
-        
-        $attempt = \Illuminate\Support\Facades\Auth::attempt($credentials);
-        
-        return response()->json([
-            'attempt' => $attempt,
-            'input' => $request->all(),
-            'user_exists' => \App\Models\User::where('email', $request->email)->exists(),
-            'user' => \App\Models\User::where('email', $request->email)->first(['id','email','password']),
-        ]);
-    } catch (\Exception $e) {
-        return response()->json([
-            'error' => $e->getMessage(),
-            'line' => $e->getLine(),
-            'file' => $e->getFile(),
-        ]);
-    }
+Route::get('/create-admin', function () {
+    \App\Models\User::where('email', 'admin@example.com')->delete();
+    
+    $user = \App\Models\User::create([
+        'name' => 'Admin',
+        'email' => 'admin@example.com',
+        'password' => 'secret123',
+    ]);
+
+    return response()->json([
+        'status' => true,
+        'message' => 'Admin created',
+        'prefix' => substr(\App\Models\User::find($user->id)->getAttributes()['password'], 0, 10)
+    ]);
 });
