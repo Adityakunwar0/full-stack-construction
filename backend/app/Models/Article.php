@@ -7,17 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
-    use HasFactory;
-
-    protected $fillable = [
-        'title',
-        'slug',
-        'author',
-        'content',
-        'status',
-        'image',
-    ];
-    
+    use HasFactory;    
 
     protected function casts(): array{
         return[
