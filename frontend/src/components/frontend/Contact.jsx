@@ -17,26 +17,34 @@ const Contact = () => {
 
   
    const onSubmit = async (data) => {
-  
+  try {
     const res = await fetch(apiurl + "contact-now", {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(data),
     });
 
+    // check if response is OK
+    if (!res.ok) {
+      throw new Error("Server error");
+    }
+
     const result = await res.json();
 
-    if (result.status == true) {
+    if (result.status === true) {
       toast.success(result.message);
       reset();
     } else {
       toast.error(result.message || "Something went wrong.");
     }
-  
-    toast.error("Network error. Please try again.");
+
+  } catch (error) {
     console.error(error);
-  
-  };
+    toast.error("Network error. Please try again.");
+  }
+};
 
   return (
     <>
